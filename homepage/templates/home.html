@@ -11,8 +11,9 @@
 
 
 {% block content %}
-<img id="Banner" style="width:100%" src="{% static 'banner.png' %}" srcset="{% static 'banner.png' %}">
-<br/><br/>
+<br/>
+<img id="Banner" style="width:96%; position:relative; left:2% " src="{% static 'banner.png' %}" srcset="{% static 'banner.png' %}">
+<br/>
 {% include 'products.html' %}
 {% endblock content %}
 
