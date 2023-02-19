@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+    <title>E-buy</title>
+    {% load static %}
+    {% load socialaccount %}
+    <link rel="stylesheet" type="text/css" href="{% static 'navbar.css' %}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+
+<style>
+    a, a:hover{
+    text-decoration: none;
+    color: inherit;
+    }
+
+</style>
+<div id="#parent">
+    <div id="Shop">
+        <div id="Navbar">
+            <svg class="Rectangle_2">
+                <rect id="Rectangle_2" rx="0" ry="0" x="0" y="0" width="100%" height="100">
+                </rect>
+            </svg>
+            <div id="E-BUY">
+                <a href="{% url 'home' %}"><span>E-</span><span style="color:rgba(112,112,112,1);">BUY</span></a>
+            </div>
+            <div id="Shop_n">
+                <a href="{% url 'store' %}"> <span>Shop</span></a>
+            </div>
+            <div id="About_us">
+                <a href="{% url 'about' %}"><span>About us</span></a>
+            </div>
+            <div id="Blog">
+                <a href="https://www.wix.com/blog/ecommerce" target="_blank"><span>Blog</span></a>
+            </div>
+
+            <div>
+                {% block content %}
+                {% endblock content %}
+            </div>
+            <a href="{% url 'cart' %}">
+
+                <div id="Icon_ionic-ios-cart">
+                    <svg class="Path_1" viewBox="9.562 28.125 4.249 4.249">
+                        <path id="Path_1"
+                              d="M 13.81182289123535 30.24966049194336 C 13.81182289123535 31.42307662963867 12.86057949066162 32.37432098388672 11.68716144561768 32.37432098388672 C 10.51374340057373 32.37432098388672 9.562499046325684 31.42307662963867 9.562499046325684 30.24966049194336 C 9.562499046325684 29.07624053955078 10.51374340057373 28.12499618530273 11.68716144561768 28.12499618530273 C 12.86057949066162 28.12499618530273 13.81182289123535 29.07624053955078 13.81182289123535 30.24966049194336 Z">
+                        </path>
+                    </svg>
+                    <svg class="Path_2" viewBox="25.348 28.125 4.249 4.249">
+                        <path id="Path_2"
+                              d="M 29.59697914123535 30.24966049194336 C 29.59698295593262 31.42307662963867 28.64573860168457 32.37432098388672 27.47231864929199 32.37432098388672 C 26.29890251159668 32.37432098388672 25.34765815734863 31.42307662963867 25.34765815734863 30.24966049194336 C 25.34765815734863 29.07624053955078 26.29890251159668 28.12499618530273 27.47231864929199 28.12499618530273 C 28.64573860168457 28.12499618530273 29.59698295593262 29.07624053955078 29.59698295593262 30.24966049194336 Z">
+                        </path>
+                    </svg>
+                    <svg class="Path_3" viewBox="3.382 4.493 36.814 28.329">
+                        <path id="Path_3"
+                              d="M 40.18295288085938 10.5394287109375 C 40.12098693847656 10.3269624710083 39.93507385253906 10.18531799316406 39.72261428833008 10.16761207580566 L 10.88917064666748 7.378993034362793 C 10.6412935256958 7.352435111999512 10.34029865264893 7.193084716796875 10.22521305084229 6.962913513183594 C 9.888809204101562 6.334367752075195 9.676342010498047 5.980257034301758 9.145176887512207 5.316301345825195 C 8.46351432800293 4.48414134979248 7.17986536026001 4.510699272155762 4.82503080368042 4.49299430847168 C 4.028282642364502 4.48414134979248 3.382030963897705 4.953337669372559 3.382030963897705 5.741233825683594 C 3.382030963897705 6.511423110961914 3.992871284484863 6.989472389221191 4.763061046600342 6.989472389221191 C 5.53325080871582 6.989472389221191 6.648698806762695 7.033736228942871 7.064778327941895 7.157674789428711 C 7.480858325958252 7.281613349914551 7.817263126373291 7.963275909423828 7.941201686859131 8.556410789489746 C 7.941201686859131 8.565263748168945 7.941201686859131 8.574115753173828 7.95005464553833 8.582968711853027 C 7.967759609222412 8.689202308654785 8.127108573913574 9.485950469970703 8.127108573913574 9.494803428649902 L 11.668212890625 28.22724151611328 C 11.88067817687988 29.51089096069336 12.31446361541748 30.57322120666504 12.95186233520508 31.38767433166504 C 13.69549465179443 32.34377670288086 14.67815113067627 32.82182693481445 15.86441993713379 32.82182693481445 L 36.81005096435547 32.82182693481445 C 37.48285675048828 32.82182693481445 38.05828857421875 32.30836486816406 38.08484649658203 31.63555335998535 C 38.12025833129883 30.92733192443848 37.55368041992188 30.34305191040039 36.84546279907227 30.34305191040039 L 15.85556793212891 30.34305191040039 L 15.84671592712402 30.34305191040039 C 15.6696605682373 30.34305191040039 15.41292953491211 30.34305191040039 15.11193656921387 30.09517478942871 C 14.80209064483643 29.82959175109863 14.37715816497803 29.21875 14.09386920928955 27.79345703125 L 13.71320152282715 25.69535255432129 C 13.71320152282715 25.66879463195801 13.72205448150635 25.65108871459961 13.74861240386963 25.64223670959473 L 38.33272552490234 21.4814395904541 C 38.56289672851562 21.4460277557373 38.73995208740234 21.2601203918457 38.76651382446289 21.02109718322754 L 40.18295288085938 10.76960182189941 C 40.20065689086914 10.69877815246582 40.20065689086914 10.61910343170166 40.18295288085938 10.5394287109375 Z">
+                        </path>
+                    </svg>
+
+                    <div class="border border-danger rounded p-1 bg-danger text-white" style="position:absolute; left:50px"><b> {{cart_count}}</b> </div>
+                </div>
+
+            </a>
+            .
+
+            {% if user.is_authenticated %}
+
+
+            <div id="Logged_in_as">
+                <span>Logged in as</span>
+
+
+                <div class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        {{request.user}}
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <a class="dropdown-item" href="/order-complete/">View orders</a>
+                        <a class="dropdown-item" href="/accounts/logout/">Log out</a>
+                    </div>
+                </div>
+
+
+            </div>
+
+
+            {% else %}
+
+            <div id="Gmail_login">
+                <span><a href="{% provider_login_url 'google' %}">Login</a></span>
+            </div>
+
+            {% endif %}
+
+        </div>
+
+    </div>
+</div>
+</body>
+</html>

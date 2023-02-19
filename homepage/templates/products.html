@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'navbar.css' %}">
+</head>
+<body>
+<div class="row ml-4">
+    {% for product in products %}
+    <div class="col-sm-3 d-flex align-items-stretch" style="margin-top:30px" >
+
+        <div class="card padding-0 " style="width: 24rem; padding: 15px 15px 0px 15px; border-radius: 15px;">
+            <a href="/products/{{product.id}}">
+            {% if product.image %}
+            <img class="card-img-top" src="{{product.image.url}}" alt="Card image cap" style="border-radius: 15px;">
+            {% endif %}
+            <div class="card-body" style="font-family: Avenir; ">
+                <h5 class="card-title"><b>{{product.name}}</b></h5>
+                <p class="card-text" style="color: rgba(93,93,93,1)">{{product.description}}</p>
+                <h5 style="text-align: right"><b>$ {{product.price}}</b></h5>
+            </div>
+               </a>
+        </div>
+
+    </div>
+    {% endfor %}
+
+</div>
+</body>
+</html>

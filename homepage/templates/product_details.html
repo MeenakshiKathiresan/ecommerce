@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<div id="Product">
+    <div id="Group_4">
+        <svg class="Path_4">
+            <path id="Path_4"
+                  d="M 16.15 0 L 1279.58 0 C 1288.51 0 1295.74 7.23 1295.74 16.15642929077148 L 1295.74560546875 568.706298828125 C 1295.74560546875 577.6292724609375 1288.51220703125 584.8627319335938 1279.589233398438 584.8627319335938 L 16.15642929077148 584.8627319335938 C 7.233479976654053 584.8627319335938 0 577.6292724609375 0 568.706298828125 L 0 16.15642929077148 C 0 7.233479976654053 7.233479976654053 0 16.15642929077148 0 Z">
+            </path>
+        </svg>
+
+        {% if product.image %}
+        <img class="img-fluid" src="{{product.image.url}}" alt="Card image cap"
+             style="position:absolute; width:500px; left: 120px; top: 40px; border-radius: 20px;">
+        {% endif %}
+        <div id="product_name">
+            <span><b>{{product.name}}</b></span>
+        </div>
+        <div id="description">
+            <span>{{product.description}}</span>
+        </div>
+        <div id="price">
+            <span><b>${{product.price}}</b></span>
+        </div>
+        <svg class="Rectangle_6">
+            <rect id="Rectangle_6" rx="15" ry="15" x="0" y="0" width="191" height="56">
+            </rect>
+        </svg>
+        <svg class="Rectangle_12">
+            <rect id="Rectangle_12" rx="15" ry="15" x="0" y="0" width="191" height="56">
+            </rect>
+        </svg>
+        <button id="add-btn" class="btn btn-info" onclick="addToCart()"
+                style=" background:none; border:none; margin:0;  padding:0;  cursor: pointer;">
+            <div id="Add_to_cart">
+                <span>Add to cart</span>
+            </div>
+        </button>
+        <a style="float:right; margin:5px;" href="{% url 'checkout' %}">
+            <div id="Checkout">
+                <span>Checkout</span>
+            </div>
+        </a>
+
+        <div id="Group_1">
+            <svg class="Rectangle_7">
+                <rect id="Rectangle_7" rx="5" ry="5" x="0" y="0" width="43" height="42">
+                </rect>
+            </svg>
+            <div id="n_">
+                <span id="counting">1</span>
+            </div>
+            <svg class="Rectangle_8">
+                <rect id="Rectangle_8" rx="5" ry="5" x="0" y="0" width="43" height="42">
+                </rect>
+            </svg>
+            <button onclick="decrement()"
+                    style=" background:none; border:none; margin:0;  padding:0;  cursor: pointer;">
+                <div id="n__">
+                    <span>-</span>
+                </div>
+            </button>
+            <button onclick="increment()"
+                    style=" background:none; border:none; margin:0;  padding:0;  cursor: pointer;">
+                <div id="Text">
+                    <span>+</span>
+                </div>
+            </button>
+        </div>
+    </div>
+
+    {% if count %}
+
+    <div id="Group_3">
+        <svg class="Path_5" viewBox="0 0 1295.746 71.663">
+            <path id="Path_5"
+                  d="M 16.15642929077148 0 L 1279.589233398438 0 C 1288.51220703125 0 1295.74560546875 0.8863104581832886 1295.74560546875 1.979629874229431 L 1295.74560546875 69.68297576904297 C 1295.74560546875 70.77629089355469 1288.51220703125 71.66259765625 1279.589233398438 71.66259765625 L 16.15642929077148 71.66259765625 C 7.233479976654053 71.66259765625 0 70.77629089355469 0 69.68297576904297 L 0 1.979629874229431 C 0 0.8863104581832886 7.233479976654053 0 16.15642929077148 0 Z">
+            </path>
+        </svg>
+        <div id="Icon_ionic-ios-cart2">
+            <svg class="Path_6" viewBox="9.563 28.125 3.485 3.485">
+                <path id="Path_6"
+                      d="M 13.0476541519165 29.86757850646973 C 13.0476541519165 30.82997512817383 12.26747608184814 31.61015510559082 11.30507755279541 31.61015510559082 C 10.34267902374268 31.61015510559082 9.5625 30.82997512817383 9.5625 29.86757659912109 C 9.5625 28.90517807006836 10.34267902374268 28.125 11.30507755279541 28.125 C 12.26747608184814 28.125 13.0476541519165 28.90517807006836 13.0476541519165 29.86757659912109 Z">
+                </path>
+            </svg>
+            <svg class="Path_7" viewBox="25.348 28.125 3.485 3.485">
+                <path id="Path_7"
+                      d="M 28.83281135559082 29.86757850646973 C 28.83281326293945 30.82997512817383 28.05263328552246 31.61015510559082 27.09023666381836 31.61015510559082 C 26.12783813476562 31.61015510559082 25.34765815734863 30.82997512817383 25.34765815734863 29.86757659912109 C 25.34765815734863 28.90517807006836 26.12783813476562 28.125 27.09023666381836 28.125 C 28.05263328552246 28.125 28.83281326293945 28.90517807006836 28.83281326293945 29.86757659912109 Z">
+                </path>
+            </svg>
+            <svg class="Path_8" viewBox="3.382 4.493 30.194 23.234">
+                <path id="Path_8"
+                      d="M 33.56491851806641 9.452055931091309 C 33.51409530639648 9.277798652648926 33.36161804199219 9.161626815795898 33.18736267089844 9.14710521697998 L 9.53913688659668 6.85997200012207 C 9.335836410522461 6.838190078735352 9.088970184326172 6.707496643066406 8.99458122253418 6.518717765808105 C 8.718673706054688 6.003205299377441 8.544415473937988 5.712776184082031 8.108771324157715 5.168220520019531 C 7.549694538116455 4.485712051391602 6.49688720703125 4.50749397277832 4.565531253814697 4.492972373962402 C 3.912064790725708 4.485711097717285 3.382030963897705 4.870530128479004 3.382030963897705 5.516736030578613 C 3.382030963897705 6.148420333862305 3.88302206993103 6.540500640869141 4.514705657958984 6.540500640869141 C 5.146389484405518 6.540500640869141 6.061242580413818 6.576804161071777 6.402497291564941 6.678454399108887 C 6.743752002716064 6.780104637145996 7.019659996032715 7.339181900024414 7.121310234069824 7.825651168823242 C 7.121310234069824 7.832911491394043 7.121310234069824 7.84017276763916 7.128571033477783 7.847433090209961 C 7.143092155456543 7.934562683105469 7.273785591125488 8.588028907775879 7.273785591125488 8.59528923034668 L 10.17808151245117 23.95900917053223 C 10.35233879089355 25.01181602478027 10.70811462402344 25.88310432434082 11.23088836669922 26.55109214782715 C 11.84078979492188 27.33525085449219 12.64673137664795 27.72733306884766 13.61967086791992 27.72733306884766 L 30.7985725402832 27.72733306884766 C 31.35038757324219 27.72733306884766 31.82233619689941 27.30620956420898 31.84412002563477 26.75439262390137 C 31.8731632232666 26.17353439331055 31.40847587585449 25.69432640075684 30.82761764526367 25.69432640075684 L 13.61241054534912 25.69432640075684 L 13.605149269104 25.69432640075684 C 13.45993518829346 25.69432640075684 13.24937343597412 25.69432640075684 13.00250911712646 25.49102592468262 C 12.74838256835938 25.27320289611816 12.39986801147461 24.7722110748291 12.16752433776855 23.60323333740234 L 11.85531234741211 21.88243865966797 C 11.85531234741211 21.86065673828125 11.86257362365723 21.84613609313965 11.88435554504395 21.83887481689453 L 32.04742431640625 18.42632865905762 C 32.23620223999023 18.39728546142578 32.38141632080078 18.24481010437012 32.40320205688477 18.04877090454102 L 33.56491851806641 9.640836715698242 C 33.57943725585938 9.582749366760254 33.57943725585938 9.517402648925781 33.56491851806641 9.452055931091309 Z">
+                </path>
+            </svg>
+        </div>
+        <div id="n__of_this_product_is_already_">
+            <span>{{count}} of this product is already in cart!</span>
+        </div>
+    </div>
+    {% endif %}
+</div>
+
+
+<script>
+                    function getCookie(name) {
+                        let cookieValue = null;
+                        if (document.cookie && document.cookie !== '') {
+                            const cookies = document.cookie.split(';');
+                            for (let i = 0; i < cookies.length; i++) {
+                                const cookie = cookies[i].trim();
+                                // Does this cookie string begin with the name we want?
+                                if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                                    cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                                    break;
+                                }
+                            }
+                        }
+                        return cookieValue;
+                    }
+                    const csrftoken = getCookie('csrftoken');
+
+                   var data = 1;
+
+                    document.getElementById("counting").innerText = data;
+
+                    function increment() {
+                        data = data + 1;
+                        document.getElementById("counting").innerText = data;
+                        console.log(data);
+                    }
+                    function decrement() {
+                        if(data>0)
+                        {
+                            data = data - 1;
+                            document.getElementById("counting").innerText = data;
+                            console.log(data);
+                        }
+                    }
+
+                    console.log("data before", data);
+
+                    function addToCart(){
+
+                        var url = window.location.href
+                        fetch(url, {
+                                method:'POST',
+                                headers:{
+                                    'Content-Type':'application/json',
+                                    'X-CSRFToken':csrftoken,
+                                },
+                                body:JSON.stringify({'productId': {{product.id}}, 'qty': data.toString() })
+                            })
+
+                            .then((rdata) => {
+                                console.log('data', rdata);
+                                location.reload()
+                            })
+
+                    }
+
+
+
+
+</script>
+
+
+{% endblock content %}
+
+</body>
+</html>

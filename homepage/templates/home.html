@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>E-Buy</title>
+    {% extends 'base.html' %}
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'navbar.css' %}">
+</head>
+<body>
+
+
+{% block content %}
+<img id="Banner" style="width:100%" src="{% static 'banner.png' %}" srcset="{% static 'banner.png' %}">
+<br/><br/>
+{% include 'products.html' %}
+{% endblock content %}
+
+
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class="container">
+    <h4>Order history</h4>
+
+    {% for order, items in orders.items %}
+    <h3> order id: {{order.id}}</h3>
+    <table class="table table-image">
+        <thead style="background-color:#e6e6e6">
+        <tr style="font-weight: normal">
+            <th scope="col">ordered id<br/> <b>{{order.id}}</b></th>
+            <th scope="col">Shipping address<br/><b> Orange st </b></th>
+            <th scope="col"></th>
+            <th scope="col">Qty<br/> <b>{{order.get_item_count}}</b></th>
+            <th scope="col">Total<br/> <b>${{order.get_order_total}}</b></th>
+        </tr>
+        </thead>
+        {% for item in items %}
+        <div class="row">
+
+            <div class="col-12">
+
+                <tbody>
+                <tr>
+
+                    <td class="w-20">
+                        <a href="/products/{{item.product.id}}">
+                            {% if item.product.image %}
+                            <img class="card-img-top" src="{{item.product.image.url}}" alt="Card image cap"
+                                 style="top:10px; width:150px; border-radius: 10px;">
+                            {% endif %}
+                        </a>
+                    </td>
+                    <td><b>{{item.product.name}} </b><br/> {{item.product.description}}</td>
+                    <td>{{item.product.price}}</td>
+                    <td>{{item.quantity}}</td>
+                    <td>{{item.get_total}}</td>
+                </tr>
+                </tbody>
+
+            </div>
+        </div>
+        {% endfor %}
+
+    </table>
+    <br>
+
+
+    {% endfor %}
+    </script>
+</div>
+{% endblock content %}
+</body>
+</html>

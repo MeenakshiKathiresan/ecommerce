@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+</head>
+<body>
+
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class="container">
+    <div class="jumbotron">
+        <h4 class="display-8">About the project<span class="badge badge-secondary ml-2">   Full stack development</span>
+        </h4>
+        <p class="lead">This is the final project done for the course full stack development in Fall 2022. It is a simple
+            ecommerce website where you can search for products, add it to cart, checkout and pay for the products. This
+            project has gmail login and paypal payment integrated. The images are stored in AWS S3 bucket. Currently, the
+            project has over 20 products for demonstration. Views are done with HTML combined with bootstrap styles. Apart
+            from this, adobe XD design is used for 1-2 pages. </p>
+        <hr class="my-4">
+        <p class="lead">
+        <table class="table table-bordered text-center">
+
+            <tbody>
+            <tr>
+
+                <td class="p-3 mb-2 bg-secondary text-white">gmail</td>
+                <td class="p-3 mb-2 bg-dark text-white">paypal</td>
+                <td class="p-3 mb-2 bg-secondary text-white">AWS</td>
+
+
+            </tr>
+            <tr>
+                <td class="p-3 mb-2 bg-dark text-white">python</td>
+                <td class="p-3 mb-2 bg-secondary text-white">Django</td>
+                <td class="p-3 mb-2 bg-dark text-white">DTL</td>
+            </tr>
+            <tr>
+
+                <td class="p-3 mb-2 bg-secondary text-white">HTML</td>
+                <td class="p-3 mb-2 bg-dark text-white">CSS</td>
+                <td class="p-3 mb-2 bg-secondary text-white">Javascript</td>
+
+
+            </tr>
+            </tbody>
+        </table>
+
+        </p>
+    </div>
+
+</div>
+{% endblock content %}
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+</head>
+<body>
+
+{% extends 'base.html' %}
+
+{% load static %}
+{% block content %}
+
+<nav class="navbar navbar-light bg-light">
+  <form class="form-inline d-flex justify-content-center" style="width:100%" method = POST action="{% url 'store' %}" >
+      {% csrf_token %}
+
+    <input class="form-control mr-sm-2" style="width:50%" type="search" placeholder="Search" aria-label="Search" name ="search_word">
+    <button class="btn btn-outline-success my-2 my-sm-0" style="width:5%" type="submit">Search</button>
+  </form>
+</nav>
+{% if searched_word %}
+<div class="mt-4 ml-4"><h5> Search results for <b>{{searched_word}}</b></h5></div>
+{% endif %}
+{% include 'products.html' %}
+{% endblock content %}
+</body>
+</html>
