@@ -10,7 +10,7 @@
 {% load static %}
 {% block content %}
 
-<div class="container">
+<div class="container d-flex justify-content-center">
     <div style="overflow-x: auto;">
     <table class="table table-image">
         <thead>
@@ -21,16 +21,16 @@
                     <h4 class="mt-2">Shipping address</h4>
 
                     <div class="form-row">
-                        <div class="col-xs-3 mb-3">
+                        <div class="col mb-3">
                             <label>Address name</label>
                             <input type="text" class="form-control" placeholder="Home"
                                    required>
                         </div>
-                        <div class="col-xs-3 mb-3">
+                        <div class="col mb-3">
                             <label>Apartment</label>
                             <input type="text" class="form-control" placeholder="#101" required>
                         </div>
-                        <div class="col-xs-3 mb-3">
+                        <div class="col mb-3">
                             <label>Street</label>
                             <input type="text" class="form-control" placeholder="street" required>
                         </div>
@@ -38,16 +38,16 @@
                     </div>
 
                     <div class="form-row">
-                        <div class="col-xs-3 mb-3">
+                        <div class="col mb-3">
                             <label>City</label>
                             <input type="text" class="form-control" placeholder="city" required>
                         </div>
-                        <div class="col-xs-3 mb-3">
+                        <div class="col mb-3">
                             <label>State</label>
                             <input type="text" class="form-control" placeholder="state" required>
                         </div>
 
-                        <div class="col-xs-3 mb-3">
+                        <div class="col mb-3">
                             <label>Zipcode</label>
                             <input type="number" class="form-control" placeholder="zipcode" required>
                         </div>
@@ -57,15 +57,15 @@
                 </form>
             </div>
 
-            <div class="col">
-                <br/><br/><br/>
+
+        </div>
+
+       <div class="col">
+                <br/>
                 <!-- Set up a container element for the button -->
                 <div id="paypal-button-container"></div>
             </div>
-        </div>
-
-
-        <br/><br/>
+        <br/>
 
         <h4>Order Summary</h4>
         <tr>
@@ -89,7 +89,7 @@
                         {% if item.product.image %}
                         <a href="/products/{{item.product.id}}">
                             <img class="card-img-top" src="{{item.product.image.url}}" alt="Card image cap"
-                                 style="top:10px; width:150px; border-radius: 10px;">
+                                 style="top:10px; width:120px; border-radius: 10px;">
                         </a>
                         {% endif %}
                     </td>
