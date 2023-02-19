@@ -13,6 +13,7 @@
 
     {% for order, items in orders.items %}
     <h3> order id: {{order.id}}</h3>
+    <div style="overflow-x: auto;">
     <table class="table table-image">
         <thead style="background-color:#e6e6e6">
         <tr style="font-weight: normal">
@@ -39,7 +40,7 @@
                             {% endif %}
                         </a>
                     </td>
-                    <td><b>{{item.product.name}} </b><br/> {{item.product.description}}</td>
+                    <td><b>{{item.product.name}} </b></td>
                     <td>{{item.product.price}}</td>
                     <td>{{item.quantity}}</td>
                     <td>{{item.get_total}}</td>
@@ -51,6 +52,7 @@
         {% endfor %}
 
     </table>
+    </div>
     <br>
 
 

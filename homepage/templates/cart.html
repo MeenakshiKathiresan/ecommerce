@@ -4,81 +4,85 @@
     <meta charset="UTF-8">
 
 </head>
+<style>
+
+
+</style>
 <body>
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
 
+<div style="overflow-x: auto;">
+    <div class="container" style="font-size:12">
+        <table class="table table-image">
+            <thead>
+            <tr>
+                <th scope="col">Product details</th>
+                <th scope="col"></th>
+                <th scope="col">Price</th>
+                <th scope="col">Quantity</th>
+                <th scope="col">Total</th>
+                <th scope="col"></th>
+            </tr>
+            </thead>
+            {% for item in items %}
+            <div class="row">
 
-<div class="container">
-    <table class="table table-image">
-        <thead>
-        <tr>
-            <th scope="col">Product details</th>
-            <th scope="col"></th>
-            <th scope="col">Price</th>
-            <th scope="col">Quantity</th>
-            <th scope="col">Total</th>
-            <th scope="col"></th>
-        </tr>
-        </thead>
-        {% for item in items %}
-        <div class="row">
+                <div class="col-12">
 
-            <div class="col-12">
+                    <tbody>
+                    <tr>
 
-                <tbody>
-                <tr>
+                        <td class="w-20">
+                            <a href="/products/{{item.product.id}}">
+                                {% if item.product.image %}
+                                <img class="card-img-top" src="{{item.product.image.url}}" alt="Card image cap"
+                                     style="top:10px; width:100px; border-radius: 10px;">
+                                {% endif %}
 
-                    <td class="w-20">
-                        <a href="/products/{{item.product.id}}">
-                            {% if item.product.image %}
-                            <img class="card-img-top" src="{{item.product.image.url}}" alt="Card image cap"
-                                 style="top:10px; width:150px; border-radius: 10px;">
-                            {% endif %}
-
+                            </a>
+                        </td>
+                        <td><b>{{item.product.name}} </b></td>
                         </a>
-                    </td>
-                    <td><b>{{item.product.name}} </b><br/> {{item.product.description}}</td>
-                    </a>
-                    <td>{{item.product.price}}</td>
-                    <td>{{item.quantity}}</td>
-                    <td>{{item.get_total}}</td>
-                    <td>
+                        <td>{{item.product.price}}</td>
+                        <td>{{item.quantity}}</td>
+                        <td>{{item.get_total}}</td>
+                        <td>
 
-                        <form method="POST" action="{% url 'cart' %}">
-                            {% csrf_token %}
-                            <input type="hidden" value="{{ item.product.id}}" name="item"/>
-                            <input
-                                    type="submit"
-                                    value="delete"
-                                    class="btn btn-outline-danger"
-                            />
-                        </form>
-                        <!-- <a href="" class="btn btn-sm btn-success">{{urun.fiyat}} TL</a>-->
+                            <form method="POST" action="{% url 'cart' %}">
+                                {% csrf_token %}
+                                <input type="hidden" value="{{ item.product.id}}" name="item"/>
+                                <input
+                                        type="submit"
+                                        value="delete"
+                                        class="btn btn-outline-danger"
+                                />
+                            </form>
+                            <!-- <a href="" class="btn btn-sm btn-success">{{urun.fiyat}} TL</a>-->
 
 
-                    </td>
-                </tr>
-                </tbody>
+                        </td>
+                    </tr>
+                    </tbody>
 
+                </div>
             </div>
-        </div>
-        {% endfor %}
-        <td></td>
-        <td></td>
-        <td></td>
-        <td>{{order.get_item_count}}</td>
-        <td>${{order.get_order_total}}</td>
-    </table>
+            {% endfor %}
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>{{order.get_item_count}}</td>
+            <td>${{order.get_order_total}}</td>
+        </table>
+    </div>
+    <br/>
+
+    {% if items %}
+    <a style="float:right; margin-right:50%;" class="btn btn-success" href="{% url 'checkout' %}">Checkout</a>
+    {% endif %}
 </div>
-<br/>
-
-{% if items %}
-<a style="float:right; margin-right:50%;" class="btn btn-success" href="{% url 'checkout' %}">Checkout</a>
-{% endif %}
-
-{% endblock content %}
+    {% endblock content %}
 </body>
 </html>
 
