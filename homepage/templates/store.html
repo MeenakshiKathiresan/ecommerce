@@ -4,19 +4,25 @@
     <meta charset="UTF-8">
 
 </head>
+
+
+
 <body>
 
 {% extends 'base.html' %}
 
 {% load static %}
+{% block script %}
+
+{% endblock script %}
 {% block content %}
 
 <nav class="navbar navbar-light bg-light">
   <form class="form-inline d-flex justify-content-center" style="width:100%" method = POST action="{% url 'store' %}" >
       {% csrf_token %}
 
-    <input class="form-control mr-sm-2" style="width:50%" type="search" placeholder="Search" aria-label="Search" name ="search_word">
-    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    <input id="search_word" class="form-control mr-sm-2" style="width:50%" type="search" placeholder="Search" aria-label="Search" name ="search_word">
+    <button id = "btn" class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
   </form>
 </nav>
 {% if searched_word %}
@@ -25,4 +31,5 @@
 {% include 'products.html' %}
 {% endblock content %}
 </body>
+
 </html>

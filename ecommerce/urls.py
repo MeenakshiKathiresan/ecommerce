@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from homepage.views import home_view, cart_view, store_view, checkout_view, about_view, product_details_view, order_complete_view
+from homepage.views import home_view, cart_view, store_view, checkout_view, about_view, product_details_view, order_complete_view, login_view
 
 from django.conf import settings
 from django.conf.urls.static import static
@@ -26,6 +26,7 @@ urlpatterns = [
     path('store/', store_view, name="store"),
     path('cart/', cart_view, name="cart"),
     path('checkout/', checkout_view, name="checkout"),
+    path('login/', login_view, name="login"),
     path('order-complete/', order_complete_view, name="order_complete"),
     path('about/', about_view, name="about"),
     path('', home_view, name="home"),

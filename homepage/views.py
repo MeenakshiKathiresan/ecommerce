@@ -18,6 +18,13 @@ def home_view(request):
 
 
 def store_view(request):
+    cart_count = get_cart_qty(request)
+    if 'term' in request.GET:
+        products = Product.objects.filter(name__contains = request.GET.get('term'))
+        names = [product.name for product in products]
+        print(names, " titles")
+        return JsonResponse(names, safe=False)
+
     search_word = ""
     if request.method == "POST":
         search_word = request.POST['search_word']
@@ -26,7 +33,6 @@ def store_view(request):
     else:
         products = Product.objects.all()
 
-    cart_count = get_cart_qty(request)
     context = {'products': products, 'searched_word': search_word, 'cart_count':cart_count}
     return render(request, 'store.html', context)
 
@@ -98,7 +104,12 @@ def about_view(request):
     context = {'cart_count': cart_count}
     return render(request, 'about.html', context)
 
+def login_view(request):
+    cart_count = get_cart_qty(request)
+    context = {'cart_count': cart_count}
+    return render(request, 'login.html', context)
 
+@login_required()
 def product_details_view(request, product_id):
     if request.user.is_authenticated:
         product = Product.objects.get(id=product_id)
