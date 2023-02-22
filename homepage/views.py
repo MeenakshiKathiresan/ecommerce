@@ -19,11 +19,11 @@ def home_view(request):
 
 def store_view(request):
     cart_count = get_cart_qty(request)
+
     if 'term' in request.GET:
-        products = Product.objects.filter(name__contains = request.GET.get('term'))
-        names = [product.name for product in products]
-        print(names, " titles")
-        return JsonResponse(names, safe=False)
+        products = Product.objects.filter(name__contains=request.GET.get('term'))
+        product_names = [product.name for product in products]
+        return JsonResponse(product_names, safe=False)
 
     search_word = ""
     if request.method == "POST":
@@ -79,9 +79,7 @@ def order_complete_view(request):
     return render(request, 'order_history.html', context)
 
 
-
 def checkout_view(request):
-
     if request.user.is_authenticated:
         customer = request.user
         order = Order.objects.filter(customer=customer, status=False)

@@ -13,7 +13,14 @@
 
 {% load static %}
 {% block script %}
+  <script>
+  $( function() {
 
+    $( "#search_word" ).autocomplete({
+      source: '{% url 'store' %}'
+    });
+  } );
+  </script>
 {% endblock script %}
 {% block content %}
 
