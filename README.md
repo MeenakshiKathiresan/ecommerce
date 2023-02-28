@@ -1,5 +1,5 @@
-# [ecommerce](https://ebuystore.herokuapp.com/)
-A full stack ecommerce website to sign in, view & filter products, add to cart, check out, make payment and view order history. Google OAuth is used as a third party to sign in. Paypal sandbox is used for payment integration.
+# [e-commerce](https://ebuystore.herokuapp.com/)
+A full stack ecommerce website to sign in, view & search products, add to cart, check out, make payment and view order history. Google OAuth is used as a third party to sign in. Paypal sandbox is used for payment integration.
 Images are loaded from AWS S3 bucket and the website is deployed on [heroku](https://ebuystore.herokuapp.com/).
 
 <p align="center"></br>
